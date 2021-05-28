@@ -1,0 +1,197 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css"/>
+	<!-- Responsive styles-->
+	<link rel="stylesheet" href="css/responsive.css"/>
+	<!-- FontAwesome -->
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<!-- Animation -->
+	<link rel="stylesheet" href="css/animate.css"/>
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="css/owl.theme.default.min.css"/>
+	<!-- Colorbox -->
+	<link rel="stylesheet" href="css/colorbox.css"/>
+  
+
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+
+
+
+
+
+  <title>ADMIN Login</title>
+  
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+  
+<style>
+.main-content{
+	width: 50%;
+	border-radius: 20px;
+	box-shadow: 0 5px 5px rgba(0,0,0,.4);
+	margin: 5em auto;
+  margin-top: 14em;
+	display: flex;
+}
+.company__info{
+	background-color: #ffb600;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: #fff;
+}
+.fa-android{
+	font-size:3em;
+}
+@media screen and (max-width: 640px) {
+	.main-content{width: 90%;}
+	.company__info{
+		display: none;
+	}
+	.login_form{
+		border-top-left-radius:20px;
+		border-bottom-left-radius:20px;
+	}
+}
+@media screen and (min-width: 642px) and (max-width:800px){
+	.main-content{width: 70%;}
+}
+.row > h2{
+	color:#ffb600;
+}
+.login_form{
+	background-color: #fff;
+	border-top-right-radius:20px;
+	border-bottom-right-radius:20px;
+	border-top:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+form{
+	padding: 0 2em;
+}
+.form__input{
+	width: 100%;
+	border:0px solid transparent;
+	border-radius: 0;
+	border-bottom: 1px solid #aaa;
+	padding: 1em .5em .5em;
+	padding-left: 2em;
+	outline:none;
+	margin:1.5em auto;
+	transition: all .5s ease;
+}
+.form__input:focus{
+	border-bottom-color: #ffb600;
+	box-shadow: 0 0 5px rgba(0,80,80,.4); 
+	border-radius: 4px;
+}
+.btn{
+	transition: all .5s ease;
+	width: 70%;
+	border-radius: 30px;
+	color:#ffb600;
+	font-weight: 600;
+	background-color: #fff;
+	border: 1px solid #ffb600;
+	margin-top: 1.5em;
+	margin-bottom: 1em;
+}
+.btn:hover, .btn:focus{
+	background-color: #ffb600;
+	color:#fff;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+<script type="text/javascript">
+ // Variable to count number of attempts.
+// Below function Executes on click of login button.
+function validate(){
+	var attempt = 3;
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "admin" && password == "admin"){
+
+window.location = "tableorder.html";
+return false; // Redirecting to other page.
+
+}
+else{
+// Decrementing by one.
+alert("ACCESS DENIED");
+// Disabling fields after 3 attempts.
+}
+}
+</script>
+  
+  
+ 
+
+
+</head>
+
+<body>
+  <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Yinka Enoch Adedokun">
+	<title>Login Page</title>
+</head>
+<body>
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<div class="row main-content bg-success text-center">
+			<div class="col-md-4 text-center company__info">
+				<span class="company__logo"><h2><img src="images/logo.png"></h2></span>
+				
+			</div>
+			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+				<div class="container-fluid">
+					<div class="row">
+						<h2>Admin Login</h2>
+					</div>
+					<div class="row">
+						<form method="post" class="form-group">
+							<div class="row">
+								<input type="text" name="username" id="username" class="form__input" placeholder="Username">
+							</div>
+							<div class="row">
+								<!-- <span class="fa fa-lock"></span> -->
+								<input type="password" name="password" id="password" class="form__input" placeholder="Password">
+							</div>
+							
+							<div class="row">
+								<input type="submit" value="Submit" id="submit" onclick="validate(); return false;" class="btn">
+							</div>
+						</form>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer -->
+	
+</body>
+  
+  
+  
+  
+
+</body>
+
+</html>
+ 

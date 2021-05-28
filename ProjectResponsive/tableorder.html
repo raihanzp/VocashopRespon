@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Local Storage</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+	<!-- Responsive styles-->
+	<link rel="stylesheet" href="css/responsive.css"/>
+	<!-- FontAwesome -->
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<!-- Animation -->
+	<link rel="stylesheet" href="css/animate.css"/>
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="css/owl.theme.default.min.css"/>
+	<!-- Colorbox -->
+	<link rel="stylesheet" href="css/colorbox.css"/>
+    <style>
+        img{
+            width: 20px !important;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="admin-container">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="txtID">ID:</label>
+                <input class="form-control" type="text" id="id"/>
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group">
+                <label for="txtName">Item Name</label>
+                <input class="form-control" type="text" id="itemname"/>
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group">
+                <label for="txtPhone">Price</label>
+                <input class="form-control" type="text" id="price"/>
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group">
+                <label for="txtEmail">Code</label>
+                <input class="form-control" type="text" id="code"/>
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group">
+                <label for="txtEmail">Payment</label>
+                <input class="form-control" type="text" id="payment"/>
+            </div>
+            </div>
+            
+            <div class="form-groupz" style="margin-top: 180px; margin-left: 600px; padding-bottom: 50px; padding-top: 20px;">
+                <input class="btn btn-primary" type="button" value="Save" id="btnSave"/>
+            </div>
+
+           
+        
+    
+        <table id="tblList" class="table table-bordered"></table>
+            </div>
+
+</body>
+<script src="jquery.min.js"></script>
+<script src="function.js"></script>
+<script src="uuid.js"></script>
+<script>
+    var operation = "A"; //"A"=Tambah; "E"=Edit
+    var selected_index = -1; //Index of the selected list item
+    var tblOrder = localStorage.getItem("tblOrder");//Ambil Data DAri Local Storage
+    
+    tblOrder = JSON.parse(tblOrder); //Converts string to object
+    if(tblOrder == null) //Kalo data kosong, Inisialisasi Array Kosong
+        tblOrder = [];
+        
+    $(document).ready(function(){
+        List();
+
+        $("#btnSave").on("click",function(){
+            if(operation == "A")
+                Add();
+            else
+                Edit();	
+
+            // alert(operation)	
+        }); 
+
+        $(".btnEdit").on("click", function(){
+            operation = "E";
+            // selected_index = parseInt($(this).attr("alt").replace("Edit", ""));
+            selected_index = $(this).data("id")
+            var cli = JSON.parse(tblOrder[selected_index]);
+            $("#id").val(cli.ID).attr("readonly","readonly");
+            $("#itemname").val(cli.ItemName);
+            $("#price").val(cli.Price);
+            $("#code").val(cli.Code);
+            $("#payment").val(cli.Payment);
+            $("#itemname").focus();
+            
+        }); 
+
+        $(".btnDelete").on("click", function(){
+            // selected_index = parseInt($(this).attr("alt").replace("Delete", ""));
+            selected_index = $(this).data("id")
+            Delete();
+            location.reload();
+        }); 
+    })
+</script>
+</html>

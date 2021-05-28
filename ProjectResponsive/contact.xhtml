@@ -1,0 +1,498 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Contact</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<!-- Template styles-->
+	<link rel="stylesheet" href="css/style.css"/>
+	<!-- Responsive styles-->
+	<link rel="stylesheet" href="css/responsive.css"/>
+	<!-- FontAwesome -->
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<!-- Animation -->
+	<link rel="stylesheet" href="css/animate.css"/>
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="css/owl.theme.default.min.css"/>
+	<!-- Colorbox -->
+	<link rel="stylesheet" href="css/colorbox.css"/>
+        <script type="text/javascript">
+            function toggleRegister(){
+              document.getElementById('register').addEventListener('click', function(){
+                 document.querySelector('.muncul').style.display = 'flex'; 
+              })
+            }
+            function toggleClose(){
+              document.getElementById('close').addEventListener('click', function(){
+                 document.querySelector('.muncul').style.display = 'none'; 
+              })
+            }
+            function toggleSignin(){
+              document.getElementById('signin').addEventListener('click', function(){
+                 document.querySelector('.signinmuncul').style.display = 'flex'; 
+              })
+            }
+            function toggleClosesignin(){
+              document.getElementById('closesignin').addEventListener('click', function(){
+                 document.querySelector('.signinmuncul').style.display = 'none'; 
+              })
+            }
+        </script>
+
+    </h:head>
+    <h:body>
+        <div>
+        <div class="body-inner">
+		<!--/ Topbar end -->
+
+		<!-- Header start -->
+		<header id="header" class="header-one">
+			<div class="container">
+				<div class="row">
+					<div class="logo-area clearfix">
+						<div class="logo col-xs-12 col-md-3">
+							<a href="index.xhtml">
+								<h:graphicImage value="images/logo1.jpg" alt=""/>
+							</a>
+						</div><!-- logo end -->
+                                                <h:panelGroup rendered="#{empty nama}">
+						<div class="col-xs-12 col-md-9 header-right">
+							<ul class="top-info-box">
+								<li class="header-get-a-quote">
+                                                                    <a class="btn btn-primary" onclick="toggleSignin()" id="signin" href="#">Sign In</a>
+								</li>
+                                                                <li class="header-get-a-quote">
+									<a class="btn btn-primary" onclick="toggleRegister()" id="register" href="#">Register</a>
+								</li>
+							</ul><!-- Ul end -->
+						</div>
+                                                </h:panelGroup>
+                                                
+                                                <h:panelGroup rendered="#{not empty nama}">
+						<div class="col-xs-12 col-md-9 header-right">
+							<ul class="top-info-box">
+								<li class="header-get-a-quote">
+                                                                    <a class="btn btn-primary">Welcome, #{nama}</a>
+								</li>
+                                                            <h:panelGroup rendered="#{not empty type}">
+                                                            <li class="header-get-a-quote">
+                                                                <h:form id="adminroom">
+                                                                <h:commandButton value="Admin" class="btn btn-primary" action="adminroom.xhtml"/>&nbsp;
+                                                                </h:form>
+                                                            </li>
+                                                            </h:panelGroup>
+                                                            <li class="header-get-a-quote">
+                                                                <h:form id="orderlist">
+                                                                    <h:commandButton value="Order" class="btn btn-primary" action="userorder.xhtml"/>&nbsp;
+                                                                </h:form>
+                                                            </li>
+                                                            <li class="header-get-a-quote">
+                                                                <h:form id="logout">
+                                                                <h:commandButton value="Log Out" class="btn btn-primary" action="#{userInfo.logout()}"/>&nbsp;
+                                                                </h:form>
+								</li>
+                                                            
+							</ul><!-- Ul end -->
+						</div>
+                                                </h:panelGroup><!-- header right end -->
+					</div><!-- logo area end -->
+
+				</div><!-- Row end -->
+			</div><!-- Container end -->
+                        <h:form>
+			<nav class="site-navigation navigation navdown">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="site-nav-inner pull-left">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+
+								<div class="collapse navbar-collapse navbar-responsive-collapse">
+									<ul class="nav navbar-nav">
+										<li><a href="index.xhtml">Home</a></li>
+
+										<li class="dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown">Voucher/Card<i class="fa fa-angle-down"></i></a>
+											<ul class="dropdown-menu" role="menu">
+                                                                                                        <li><a href="garena.xhtml">Garena</a></li>
+                                                                                                        <li><a href="gplay.xhtml">Google Play</a></li>
+                                                                                                        <li><a href="steam.xhtml">Steam Wallet</a></li>
+                                                                                                      
+											</ul>
+										</li>
+
+										<li class="dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown">Top Up<i class="fa fa-angle-down"></i></a>
+											<ul class="dropdown-menu" role="menu">
+												<li><a href="ml.xhtml">Mobile Legend</a></li>
+                                                                                                <li><a href="codm.xhtml">COD Mobile</a></li>
+                                                                                                <li><a href="gi.xhtml">Genshin Impact</a></li>
+                                                                                                <li><a href="valorant.xhtml">Valorant</a></li>
+                                                                                                <li><a href="ff.xhtml">Free Fire</a></li>
+                                                                                                <li><a href="pubgm.xhtml">PUBGM</a></li>
+											</ul>
+										</li>
+
+
+
+                                                                                <li>
+                                                                                    <a href="listnews.xhtml">News </a>
+													
+										</li>
+
+										<li><a href="contact.xhtml">Contact</a></li>
+
+									</ul>
+									<!--/ Nav ul end -->
+								</div>
+								<!--/ Collapse end -->
+
+							</div><!-- Site Navbar inner end -->
+
+						</div>
+						<!--/ Col end -->
+					</div>
+					<!--/ Row end -->
+
+					<div class="nav-search">
+						<span id="search"><i class="fa fa-search"></i></span>
+					</div><!-- Search end -->
+
+					<div class="search-block" style="display: none;">
+						<h:inputText class="form-control" a:placeholder="Type what you want and enter"/>
+						<span class="search-close">&times;</span>
+					</div><!-- Site search end -->
+				</div>
+				<!--/ Container end -->
+
+			</nav>
+                        </h:form>
+			<!--/ Navigation end -->
+		</header>
+		<!--/ Header end -->
+
+		<!-- Carousel -->
+                <div id="banner-area" class="banner-area" style="background-image: url(&quot;images/banner/banner3.jpg&quot;);">
+      
+                                    <div class="banner-text">
+
+                                    <div class="container">
+
+                                    <div class="row">
+
+                                    <div class="col-xs-12">
+
+                                    <div class="banner-heading">
+
+                                    <h1 class="banner-title">Contact</h1>
+
+                                    <ol class="breadcrumb">
+
+                                    <li>Home</li>
+
+                                    <li><a href="#">Contact</a></li>
+                                                         </ol>
+                                                      </div>
+                                                   </div><!-- Col end -->
+                                                </div><!-- Row end -->
+                                             </div><!-- Container end -->
+                                          </div><!-- Banner text end -->
+                                       </div><!-- Banner area end --> 
+                                      <section id="main-container" class="main-container">
+
+                                    <div class="container">
+
+                                    <div class="row text-center">
+
+                                    <h2 class="section-title">Reaching our Office</h2>
+
+                                    <h3 class="section-sub-title">Find Our Location</h3>
+                                             </div><!--/ Title row end -->
+
+                                    <div class="row">
+
+                                    <div class="col-md-4">
+
+                                    <div class="ts-service-box-bg text-center">
+                                                      <span class="ts-service-icon icon-round">
+                                                         <i class="fa fa-map-marker" />
+                                                      </span>
+
+                                    <div class="ts-service-box-content">
+
+                                    <h4>Visit Our Office</h4>
+
+                                    <p>Jalan Duren Bangka, No. 35 12760</p>
+                                                     </div>
+                                                   </div>
+                                                </div><!-- Col 1 end -->
+
+                                    <div class="col-md-4">
+
+                                    <div class="ts-service-box-bg text-center">
+                                                      <span class="ts-service-icon icon-round">
+                                                         <i class="fa fa-envelope" />
+                                                      </span>
+
+                                    <div class="ts-service-box-content">
+
+                                    <h4>Email Us</h4>
+
+                                    <p>eaea3890@gmail.com</p>
+                                                     </div>
+                                                   </div>
+                                                </div><!-- Col 2 end -->
+
+                                    <div class="col-md-4">
+
+                                    <div class="ts-service-box-bg text-center">
+                                                      <span class="ts-service-icon icon-round">
+                                                         <i class="fa fa-phone-square" />
+                                                      </span>
+
+                                    <div class="ts-service-box-content">
+
+                                    <h4>Call Us</h4>
+
+                                    <p>(+62) </p>
+                                                     </div>
+                                                   </div>
+                                                </div><!-- Col 3 end -->
+                                             </div><!-- 1st row end -->
+
+                                    <div class="gap-60" ></div>
+
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0336957191926!2d106.82512361556063!3d-6.259291895469396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f22d2296c873%3A0x63c9cf0fcac4b538!2sGrhatama%20Home!5e0!3m2!1sid!2sid!4v1603652131125!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" align="center"></iframe>
+
+                                    <div class="gap-40" ></div>
+
+                                    <div class="row">
+
+                                    <div class="col-md-12">
+
+
+                                 
+                                                  
+
+                                    
+                                                        
+                                                </div>
+
+                                             </div><!-- Content row -->
+                                          </div><!-- Conatiner end -->
+                                       </section>
+                <!-- Project area end -->
+
+
+		
+
+		
+               <h:form>
+		<footer id="footer" class="footer bg-overlay">
+			<div class="footer-main">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-sm-12 footer-widget footer-about">
+							<h3 class="widget-title">About Us</h3>
+							<h:graphicImage class="footer-logo" value="images/logo2.jpg" alt="" />
+							<p>Every day we serve several customers quickly on every order and are safe in their transactions, and lots of players buy vouchers on our website, for example mobile legend, free fire, pubg, etc.</p>
+							<div class="footer-social">
+								<ul>
+									<li><a href="https://facebook.com/themefisher"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="https://twitter.com/themefisher"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="https://instagram.com/themefisher"><i class="fa fa-instagram"></i></a></li>
+									<li><a href="https://github.com/themefisher"><i class="fa fa-github"></i></a></li>
+								</ul>
+							</div><!-- Footer social end -->
+						</div><!-- Col end -->
+
+						<div class="col-md-4 col-sm-12 footer-widget">
+							<h3 class="widget-title">OUR SERVICES</h3>
+							<div class="working-hours">
+                                                            <li>DIRECT TOP UP</li>
+                                                            <li>NEWS</li>
+                                                            <li>VOUCHER GAME</li>
+                                                            <li>GIFT CARDS</li>
+								
+							</div>
+						</div><!-- Col end -->
+
+						<div class="col-md-4 col-sm-12 footer-widget">
+							<h3 class="widget-title">ABOUT US</h3>
+							<ul class="list-arrow">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0336957191926!2d106.82512361556063!3d-6.259291895469396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f22d2296c873%3A0x63c9cf0fcac4b538!2sGrhatama%20Home!5e0!3m2!1sid!2sid!4v1603652131125!5m2!1sid!2sid" width="300" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" align="center"></iframe>
+								
+							</ul>
+						</div><!-- Col end -->
+
+
+					</div><!-- Row end -->
+				</div><!-- Container end -->
+			</div><!-- Footer main end -->
+
+			<div class="copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6">
+							<div class="copyright-info">
+								<span>Copyright © 2020 CCIT - FTUI</span>
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-sm-6">
+							<div class="footer-menu">
+								<ul class="nav unstyled">
+									<li><a href="about.html">About</a></li>
+									<li><a href="team.html">Our people</a></li>
+									<li><a href="faq.html">Faq</a></li>
+									<li><a href="news-left-sidebar.html">Blog</a></li>
+									<li><a href="pricing.html">Pricing</a></li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- Row end -->
+
+					<div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top affix">
+						<button class="btn btn-primary" title="Back to Top">
+							<i class="fa fa-angle-double-up"></i>
+						</button>
+					</div>
+
+				</div><!-- Container end -->
+			</div><!-- Copyright end -->
+
+		</footer>
+                </h:form><!-- Footer end -->
+
+
+		<!-- Javascript Files
+	================================================== -->
+
+		<!-- initialize jQuery Library -->
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<!-- Bootstrap jQuery -->
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<!-- Owl Carousel -->
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<!-- Color box -->
+		<script type="text/javascript" src="js/jquery.colorbox.js"></script>
+		<!-- Isotope -->
+		<script type="text/javascript" src="js/isotope.js"></script>
+		<script type="text/javascript" src="js/ini.isotope.js"></script>
+                <script type="text/javascript" src="js/popup.js"></script>
+
+
+
+    <!-- Google Map API Key-->
+		
+		<!-- Google Map Plugin-->
+ 
+	 <!-- Template custom -->
+	 <script type="text/javascript" src="js/custom.js"></script>
+
+	</div>
+        </div>
+        <div class="muncul">
+                <div class="muncul-content">
+                    
+			
+				<div class="row text-center" style="margin-top: 50px">
+					<h3 class="section-sub-title">Register</h3>
+				</div>
+                                <div class="gap-20"></div>
+            <h:form id="register">
+             <div class="form-group">
+             <label for="Name">Name</label>  
+             <f:ajax event="keyup" render="nameError">
+                        <h:inputText id="n" class="form-control"  value="#{userInfo.nama}" required="true" requiredMessage="You must enter the first name"/>
+                        <h:message for="n" id="nameError" style="color:red"/>
+                         </f:ajax>
+             </div>
+                <div class="form-group">
+              <label for="Email id">Email</label>
+              <f:ajax event="keyup" render="emailError">
+                  <h:inputText id="email"  class="form-control" value="#{userInfo.email}"  required="true" requiredMessage="You must enter the email id" validator="#{userInfo.validateEmail}" validatorMessage="Invalid Email ID"/>
+                <h:message for="email" id="emailError" style="color:red"/>
+              </f:ajax>
+                </div>
+             <div class="form-group">
+                 <label for="">Password</label>
+                    <f:ajax event="keyup" render="passError">
+                        <h:inputSecret id="pwd" class="form-control" value="#{userInfo.password}" required="true" requiredMessage="You must enter the password" validatorMessage="Password must be minimum 5 characters long" validator="#{userInfo.validateFinalPassword}">
+                        <f:validateLength minimum="5"/>
+                        </h:inputSecret>
+                        <h:message for="pwd" id="passError" style="color:red"/>
+                        </f:ajax>
+                 <h:message for="pwd" style="color:red"/>
+             </div>
+                 <div class="form-group">
+                     
+                <label for="confirm">Confirm Password</label>
+                <f:ajax event="keyup" render="cpassError">
+                <h:inputSecret id="confirm" class="form-control" value="#{userInfo.confirmPassword}" required="true" requiredMessage="You must confirm the password" validator="#{userInfo.validateCPassword}"/>
+                <h:message for="confirm" id="cpassError" style="color:red"/>
+                </f:ajax>
+            </div>
+             
+                <div class="row text-center">
+                <h:commandButton value="Confirm" class="btn btn-primary" action="#{userInfo.save()}"/>
+                </div>
+               
+            </h:form>
+                                <div class="gap-40"></div>
+                       <div class="close" onclick="toggleClose()" id="close">
+                           <h:graphicImage value="images/banner/close.png" alt=""/>
+                       </div>
+               </div>
+            </div>
+        
+        <div class="signinmuncul">
+                <div class="signinmuncul-content">
+                    
+			
+				<div class="row text-center" style="margin-top: 50px">
+					<h3 class="section-sub-title">Sign In</h3>
+				</div>
+                                <div class="gap-20"></div>
+                               <h:form id="login">
+            
+                <div class="form-group">
+                    <label for="userid">Email</label>
+                    <f:ajax event="keyup" render="lEmail">
+                    <h:inputText id="logemail" class="form-control" value="#{userInfo.email}" required="true" requiredMessage="You must enter the email"/>
+                    <h:message for="logemail" id="lEmail" style="color:red;font-style: italic"/>
+                    </f:ajax>
+                </div>
+                <div class="form-group">
+                    <label for="pass">Password</label>
+                    <f:ajax event="keyup" render="lPassword">
+                    <h:inputSecret id="logpass" class="form-control" value="#{userInfo.password}" required="true" requiredMessage="You must enter the password"/>
+                    <h:message for="logpass" id="lPassword" style="color:red;font-style: italic"/>
+                    </f:ajax>
+                </div>
+                <div class="form-group">
+                    <h:commandButton value="Confirm" class="btn btn-primary" action="#{userInfo.validatelogin()}"/>&nbsp;
+                </div>
+            </h:form>
+                  <div class="gap-40"></div>
+                            
+                 
+                       <div class="close" onclick="toggleClosesignin()" id="closesignin">
+                           <h:graphicImage value="images/banner/close.png" alt=""/>
+                       </div>
+               </div>
+            </div>
+       
+    </h:body>
+</html>
+
